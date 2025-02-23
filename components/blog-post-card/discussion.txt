@@ -1,0 +1,74 @@
+================================================================================
+01, generated with LLM.
+
+SPECIFICATION
+  it is a Card.
+  with a Title in bold.
+  with Date in a different color.
+  with a description text truncated.
+  contains an image at the top.
+  contain rounded borders.
+  could have a small shadow.
+  could have a border.
+  it could move forward when hovered.
+
+HTML STRUCTURE
+  probably the whole component is involved in some kind of div ("card")
+    - it allows to
+      . give margin to the whole element
+      . rounded borders
+      . shadow
+      . define the type of layout inside of it
+  we have an image at the top
+  we have a title, date and description text with the same space from the corners
+    - it suggests that these elements are contained in a div ("card-content")
+  we choose to involve title, date and description in divs, to have block display.
+  title uses a div "card-title"
+  date uses a div "card-date"
+  the truncated text uses a div "card-text"
+
+QUESTION 01: how to give some space to the component
+  if you want the whole page to be displaced from the corners of the page, use padding on the <body>
+  if you just want the card to be displace, use margin on the card.
+
+QUESTION 02: start from top to bottom, or bottom to top.
+  go top to bottom!
+    Define the overall structure first, define the .card
+    Style the big sections (Image, Content Area)
+    Refine individual elements (Title, Date, Text)
+    Add final refinements (Hover effects, animations, truncation)
+
+.CARD
+  it has a size.
+    width: 300px;
+  it has rounded corners.
+    border-radius: 12px;
+  it has shadow.
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  it has hover effect.
+  it has a background color, so it fits any page (body) background.
+    background: white;
+  should we care with overflow?
+    overflow: hidden;
+    - even though we don't use it, i think it is a good idea to be clear about
+      which overflow option is defined in the most top containers.
+    - i don't think so, at least for the moment.
+  what about the small effect?
+    it has a transform (scale) when it is hovered.
+      - we have to define a hover pseudo-element
+    this transform should have a nice transition.
+
+.CARD:HOVER
+for the hover state, should it be declared with .class.hover or with nesting &:hover?
+  definitely use nesting nowadays!
+  use nesting not only with pseudoclasses but also with descendants, and every possible selector.
+
+IMG
+what is more important for an img container inside a Card, to fix the height, the width, both?
+  since we work with a top down approach, the width is already defined in .card, so choose a height and pick width: 100%.
+and how the best way to make the imported image to be placed inside the img container?
+  pick object-fit cover, so that it will expand the img keeping the aspect ratio, and crop a little bit of the height or weight edges.
+
+
+[] it has problems with SEO
+[] it doesn't set any height, so it fits the content
