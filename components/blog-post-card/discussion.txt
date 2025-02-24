@@ -1,5 +1,5 @@
 ================================================================================
-01, generated with LLM.
+01 generated with LLM.
 
 SPECIFICATION
   it is a Card.
@@ -38,6 +38,13 @@ QUESTION 02: start from top to bottom, or bottom to top.
     Refine individual elements (Title, Date, Text)
     Add final refinements (Hover effects, animations, truncation)
 
+* {}
+  before any start, we need to reset things. the best way is to.
+  remove margins and paddins of everything.
+  chose box-sizing: border-box for all elements
+    - this allows components like cards to be easier created since we don't need any calculations to compensate padding.
+  choose the font family that will be inherited through the document.
+
 .CARD
   it has a size.
     width: 300px;
@@ -63,12 +70,38 @@ for the hover state, should it be declared with .class.hover or with nesting &:h
   definitely use nesting nowadays!
   use nesting not only with pseudoclasses but also with descendants, and every possible selector.
 
-IMG
+.CARD IMG
 what is more important for an img container inside a Card, to fix the height, the width, both?
   since we work with a top down approach, the width is already defined in .card, so choose a height and pick width: 100%.
 and how the best way to make the imported image to be placed inside the img container?
   pick object-fit cover, so that it will expand the img keeping the aspect ratio, and crop a little bit of the height or weight edges.
 
+.CARD-CONTENT
+what would a div that keeps a header, a date and a description text do?
+  i can only think of padding.
+  there could be some background effect but that's not the case.
+  the background color is set on the .card.
+  keep in mind that wrapper always calls for padding.
+
+now it's time time to take care of each of the 3 things inside the wrapper: title, date and text
+
+.CARD-TITLE
+  change font characteristics like color, size and weight
+
+.CARD-DATE
+  usually would only think on characteristics like color, size. weight is not needed here, but
+  since it is not the first element on a list of elements placed side by side, think of margin too!
+    - in this case you only need to worry about top and bottom margins.
+
+.CARD-TEXT
+  font characteristics: color, size. weight not needed.
+  além disso é bom ter o line-clamp de 4 linhas. notar que o user esperto pode ler o conteúdo no código.
+    - o montão de propriedades é porque o line-clamp é novo. 
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limits text to 4 lines */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden; -- it won't work without overflow: hidden
 
 [] it has problems with SEO
 [] it doesn't set any height, so it fits the content
