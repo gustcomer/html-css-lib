@@ -13,6 +13,18 @@ SPECIFICATION
   it could move forward when hovered.
 
 HTML STRUCTURE
+
+  <div class="card">
+    <img src="./img/baby-hospital.webp" alt="Newborn baby">
+    <div class="card-content">
+        <div class="card-title">Enterocolite necrosante em recém-nascidos</div>
+        <div class="card-date">25/08/21</div>
+        <div class="card-text">
+            A enterocolite necrosante...
+        </div>
+    </div>
+  </div>
+
   probably the whole component is involved in some kind of div ("card")
     - it allows to
       . give margin to the whole element
@@ -38,12 +50,24 @@ QUESTION 02: start from top to bottom, or bottom to top.
     Refine individual elements (Title, Date, Text)
     Add final refinements (Hover effects, animations, truncation)
 
+QUESTION 03: what would be a good initialization?
+
 * {}
   before any start, we need to reset things. the best way is to.
   remove margins and paddins of everything.
   chose box-sizing: border-box for all elements
     - this allows components like cards to be easier created since we don't need any calculations to compensate padding.
   choose the font family that will be inherited through the document.
+
+body {}
+  put a padding on the body could solve my problem.
+  but what if the element needs to go from edge to edge, like a navbar or a row?
+  besides, all components should have it's own margin.
+
+QUESTION 04: when to solve spacing problem with padding and when to solve with margin?
+  if the spacing involves more than one element, and involves all elements inside it, use padding.
+  if it involves only one element, or doesn't affect all elements inside it, use margin
+  if it involves spacing between two sibling components, put margin in each one and let the biggest win.
 
 .CARD
   it has a size.
@@ -104,4 +128,6 @@ now it's time time to take care of each of the 3 things inside the wrapper: titl
     overflow: hidden; -- it won't work without overflow: hidden
 
 [] it has problems with SEO
+  [] um card poderia ser um <article>
+  [] um card-title deveria ser h2, e não div
 [] it doesn't set any height, so it fits the content
