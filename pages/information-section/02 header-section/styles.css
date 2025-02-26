@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 20px;
+  width: 100%;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 22px;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.underline {
+  width: 50px;
+  height: 2px;
+  background: #333;
+  margin: 5px auto;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+}
