@@ -1,0 +1,107 @@
+================================================================================
+01 simple navbar generated with LLM with responsiveness
+
+SPECS
+
+Design me a navbar.
+- it should have a logo on the left, some main navigation links on the middle, and na action área on the right.
+- use for it pure html, css and javascript.
+- i prefer light colors.
+- you may use blueish tones if you like.
+- with light colors?
+- don't forget to make it responsive.
+- make some effect when i hover the links.
+
+HTML STRUCTURE
+
+  probably the whole component is involved in <nav>
+  dentro dessa nav vai ter 3 coisas:
+    um logo na esquerda
+      uma div pra abrigar o texto
+    navigation links
+      o ul vai ser o próprio container que vai abrigar várias li
+    action area na direita
+      uma div vai abrigar dois buttons
+
+  <nav class="navbar">
+    <div class="logo">MyLogo</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="action-area">
+        <button class="action-btn">Login</button>
+        <button class="action-btn">Sign Up</button>
+    </div>
+  </nav>
+
+NAVBAR STYLING
+
+* {}
+  here is the best place to pick a font-family
+  always set margin and padding to 0, and prefer box-sizing: border-box.
+
+.navbar {}
+  no element should touch the navbar borders, so obviously it has some kind of padding.
+  it will contain/hold/accomodate/include/host 3 divs
+    so better use display: flex and justify-content: space-between
+  the items will have the same center of height
+    so better use align-items: center
+  the color is white so go with color: #ffffff
+  a shadow is always nice, go with box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+.logo
+  no big deal, just pick font-size, font-weight and color
+
+STYLING THE NAVIGATION LINKS OF THE NAVBAR
+
+.nav-links
+  instead of styling the <ul>, use a wrapper class, since the page could have other <ul> elements.
+  firstly, remove the small item checks with list-style: none;
+  then, set the layout with display: flex to allow us to use gap spacing, since they won't be in the tradition ul display.
+  QUESTION: when to use gap and when to use justify-content: space-between
+  when we want constant spacing between elements independent of container available size or media size, use gap.
+  don't worry with setting the display of li's to inline, since flex already does that.
+
+.nav-links li
+  nothing needs to be done here, since we can work directly with the anchor tag
+  so why use <li>? because it is the best way to represent navigation bars
+
+.nav-links a - UNNANIMATED PART
+  here we style each item on the main navigation menu
+  links usually have underline as decoration, so text-decoration: none;
+  configure font stuff: size, color weight
+.nav-links a - ANIMATED PART
+  since the transform and transition involves a underline, add a padding so that the line doesn't touch the text and is slightly wider than the text.
+  we'll need to position the underline, so make the anchor <a> position: relative and a::after position:absolute
+  pick the transition you want and put it here, since it will be the container for a::after
+
+.nav-links a::after
+  this is the bar that will appear under each link
+  usually ::after needs content: "", position: absolute
+  to define the size of the bar, width: 100% so that it takes the whole a container, height: 3px, and a background-color since it's like a block/div.
+  to position it use bottom: 0 and left: 0
+  since it's a bar that starts invisible, start with transform: scaleX(0) and only when hovered go to scaleX(1)
+
+.nav-links a:hover
+  on hover i choose oonly to change the text color to a little brighter blue.
+
+.nav-links a:hover::after
+  now the magic happens, when i hover over the ::after, the bar appears
+
+STYLING THE ACTION AREA OF THE NAVBAR
+
+.action-area
+  the action area with two buttons should be display: flex with a small gap
+
+.action-btn
+  the usual stuff of a button:
+    background-color, color, border, padding, font-size in em, font-weight, border-radius and cursor: pointer, small shadow
+  since it is the container of a small scale transform, pick your transition
+
+.action-btn:hover
+  now when you hover, the button darkens a little bit with background-color
+  the button grows a bit with transform: scale()
+  the shadow gets a little bit bigger with box-shadow
