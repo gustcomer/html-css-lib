@@ -1,0 +1,33 @@
+HTML STRUCTURE
+
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/615/615075.png" alt="Globo" class="icon">
+    <h1>Cirurgia Pediátrica</h1>
+    <div class="underline"></div>
+    <p>A cirurgia pediátrica é a subespecialidade da cirurgia responsável pela realização de procedimentos cirúrgicos em crianças.</p>
+  </div>
+
+STYLING
+
+<div class="container">
+  an overal div so that we can
+    - align items center
+    - add some padding
+    - make the width 100%
+    - put some background (but if it goes together with other elements to form a component, we put the background somewhere else)
+
+<img src="..." alt="..." class="icon">
+  - we set the width and height of the icon in the css
+  - since it is a component that goes with other components, think of the margin 
+
+<h1>Cirurgia Pediátrica</h1>
+  - font stuff: font-size, font-color, font-weight, uppercase
+  - since it goes with other elements, think of the margin. margin bottom is sufficient
+
+<div class="underline"></div>
+  we could make an underline with ::after
+  - set some considerable fixed with and a very small height to make it as a box
+  - since it is not text, we center it with margin auto on the left and right
+
+<p>
+  - nada demais, apenas seta fonte: tamanho, cor, font-weight
