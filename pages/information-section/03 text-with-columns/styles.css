@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  column-gap: 20px; /* Space between columns */
+}
+
+.text-columns {
+  column-count: 3; /* Default: 3 columns */
+  column-gap: 20px;
+}
+
+.column {
+  break-inside: avoid; /* Prevents breaking elements between columns */
+  margin-bottom: 20px;
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .text-columns {
+      column-count: 2; /* Switch to 2 columns */
+  }
+}
+
+@media (max-width: 600px) {
+  .text-columns {
+      column-count: 1; /* Switch to 1 column */
+  }
+}
